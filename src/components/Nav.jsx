@@ -20,10 +20,10 @@ const StyledLink = styled(Link)`
     border-radius: 8px;
     transition: 2s;
 
-    &:hover {
-        transform:rotate(360deg);
-        transition: 2s;
-    }
+    /* &:hover {
+        transform: translateX(200px);
+        transition: 1s;
+    } */
 `;
 
 const Nav = ({title}) => {
