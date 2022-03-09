@@ -20,8 +20,9 @@ const StyledLink = styled(Link)`
     border-radius: 8px;
     transition: 2s;
 
-    /*&:hover {
-        transform: translateX(200px);
+
+    /* &:hover {
+        transform:rotate(360deg);
         transition: 1s;
     } */
 `;
