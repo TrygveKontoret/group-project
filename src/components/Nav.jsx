@@ -20,7 +20,7 @@ const StyledLink = styled(Link)`
     border-radius: 8px;
     transition: 2s;
 
-    /* &:hover {
+    /*&:hover {
         transform: translateX(200px);
         transition: 1s;
     } */
