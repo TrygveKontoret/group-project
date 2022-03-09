@@ -21,7 +21,7 @@ const StyledLink = styled(Link)`
     transition: 2s;
 
     /* &:hover {
-        transform: translateX(200px);
+        transform:rotate(360deg);
         transition: 1s;
     } */
 `;
