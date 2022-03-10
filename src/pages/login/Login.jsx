@@ -1,17 +1,18 @@
 import React, { useContext, useEffect } from "react";
 import Nav from "../../components/Nav";
 import { useForm } from "react-hook-form";
-import { yupResolver, yupRessolver } from "@hookform/resolvers/yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { userLoginSchema } from "../../utils/yupSchemas";
 import axios from "axios";
 import { useNavigate } from "react-router";
-import AuthContext from "../../context/AuthContext";
-import { AUTH_URL } from "../../utils/Api";
-import styled from "styled-components";
-import { StyledForm } from "./styledLogin";
-import { StyledButton } from "./styledLogin";
-import { StyledInput } from "./styledLogin";
-import { StyledSpan } from "./styledLogin";
+import AuthContext, { AuthProvider } from "../../context/AuthContext";
+import { AUTH_URL, BASE_URL } from "../../utils/Api";
+import {
+  StyledInput,
+  StyledSpan,
+  StyledButton,
+  StyledForm,
+} from "./styledLogin";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -33,20 +34,19 @@ const Login = () => {
 
   const loginUser = async (formData) => {
     const responseData = await axios.post(AUTH_URL, {
-      indetifier: formData.email,
+      identifier: formData.email,
       password: formData.password,
     });
-
     console.log("Response Data:", responseData);
 
-    setAuth(responseData.data.jwt);
+    setAuth(responseData.data);
     navigate("/admin");
   };
 
   const onSubmit = (formData) => {
     console.log("Form Data: ", formData);
-
     loginUser(formData).catch(console.error);
+    console.log("auth: ", auth);
   };
 
   return (
