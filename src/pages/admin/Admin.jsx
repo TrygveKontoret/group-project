@@ -7,6 +7,7 @@ import AuthContext from '../../context/AuthContext';
 import { Link } from 'react-router-dom';
 import useAxios from '../../hooks/useAxios';
 import useToggle from '../../hooks/useToggle';
+import { AUTH_URL, BASE_URL } from '../../utils/Api';
 
 
 const Admin = () => {
@@ -20,12 +21,12 @@ const Admin = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const data = await http.get('/auth/local');
+            const data = await http.post(AUTH_URL);
             setBookings(data.data.data);
         };
 
         fetchData().catch((error) => setError(error.response.data.error));
-    }, [isTriggered, auth]);
+    }, [auth]);
 
     if (error) {
         return (
