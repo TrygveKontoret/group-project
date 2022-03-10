@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <>
       <Nav title="Home" />
-      <Searchbar />
+      <SearchBar />
     </>
   );
 };
